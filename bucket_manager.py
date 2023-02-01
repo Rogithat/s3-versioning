@@ -3,8 +3,8 @@
 '''
 Maintainer: Igor Santos Ferreira
 Function: DevSecOps Engineer
-Description: In order to avoid losing data in our S3 buckets, it's necessary to apply lifecycle policies with coherent retention period and bucket versioning 
-to ensure that all data is there when we need it
+Description: Simple script developed in order to avoid losing data in S3 buckets, it's necessary to enblae versioning on bucket to match an AWS Backup requisite as described
+in: https://docs.aws.amazon.com/pt_br/aws-backup/latest/devguide/s3-backups.html
 '''
 
 import boto3
@@ -31,9 +31,9 @@ def main():
 
         try:
             get_bucket_status(each_bucket['Name']) == "Enabled"
-            print("Versioning is already enabled on", each_bucket['Name'], "OK!")
+            print("Versioning is already enabled on", each_bucket['Name'], emoji.emojize(':check_mark:'))
         except:
-            print("Versioning not enabled on bucket",each_bucket['Name'], "NOK!")
+            print("Versioning not enabled on bucket",each_bucket['Name'], emoji.emojize(':cross_mark:'))
             print("Enabling versioning to match AWS Backup requisites")
             set_bucket_versioning(each_bucket["Name"])
 
