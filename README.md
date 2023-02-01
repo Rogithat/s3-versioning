@@ -10,7 +10,7 @@
 
 ## ➤ Description
 
-A script to apply our correct lifecycle policy to every bucket in AWS
+A script to apply versioning option in every S3 bucket, to match AWS backup requisite
 
 To use it, you must login in to aws console using:
 aws configure or exporting your ACCESS_KEY, SESSION_TOKEN, and SECRET_KEY environment variables
